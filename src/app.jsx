@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import TaskList from './components/TaskList';
+import TaskListContainer from './components/TaskListContainer';
 
-ReactDOM.render(<TaskList />, document.getElementById('app'))
+ReactDOM.render(<TaskListContainer />, document.getElementById('app'))
