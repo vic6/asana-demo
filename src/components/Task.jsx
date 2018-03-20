@@ -2,8 +2,6 @@ import React from 'react';
 import { Button, List } from 'semantic-ui-react';
 
 const Task = ({ name, note, id, markAsDone }) => {
-  console.log(name);
-  console.log(id);
   return (
     <div>
       <List.Content floated="left" as="li" key={id}>
