@@ -17,9 +17,9 @@ export default class TaskListContainer extends Component {
       });
   }
 
-  markAsDone = taskToRemove => {
+  markAsDone = taskToRemoveId => {
     this.setState(prevState => ({
-      tasks: prevState.filter(task => task !== taskToRemove)
+      tasks: prevState.tasks.filter(task => task.id !== taskToRemoveId)
     }));
   };
 

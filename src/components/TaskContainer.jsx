@@ -5,10 +5,12 @@ import Task from './Task';
 // name notes id
 export default class TaskContainer extends Component {
   render() {
-    const { name, note, id } = this.props;
-    return (
-      <List.Item><Task key={id} name={name} note={note} /></List.Item>
-    )
+    const { name, note, markAsDone, id } = this.props;
 
+    return (
+      <List.Item>
+        <Task id={id} name={name} note={note} markAsDone={markAsDone} />
+      </List.Item>
+    );
   }
 }
