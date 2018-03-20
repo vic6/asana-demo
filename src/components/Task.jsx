@@ -1,7 +1,11 @@
 import React from 'react';
+import { Button, List } from 'semantic-ui-react';
 
 const Task = ({name, note, id}) => (
-  <li key={id}>{name}</li>
+  <div>
+    <List.Content floated='left' as='li' key={id}>{name}</List.Content>
+    <List.Content floated='right'><Button>Mark Done</Button></List.Content>
+  </div>
 )
 
 export default Task;

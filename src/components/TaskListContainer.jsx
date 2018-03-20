@@ -13,13 +13,17 @@ export default class TaskListContainer extends Component {
         headers: { Authorization: AuthStr }
       })
       .then(response => {
-        this.setState({tasks: response.data.data});
+        this.setState({ tasks: response.data.data });
       });
   }
 
+  markAsDone = taskToRemove => {
+    this.setState(prevState => ({
+      tasks: prevState.filter(task => task !== taskToRemove)
+    }));
+  };
+
   render() {
-    return (
-      <TaskList tasks={this.state.tasks}/>
-    );
+    return <TaskList tasks={this.state.tasks} markAsDone={this.markAsDone} />;
   }
 }
