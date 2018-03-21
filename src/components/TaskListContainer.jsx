@@ -3,17 +3,23 @@ import axios from 'axios';
 import Keys from '../Keys';
 import TaskList from './TaskList';
 
+const NotFound = () => <h1 to="/">Project not found</h1>;
+
 export default class TaskListContainer extends Component {
   state = {};
 
   componentDidMount() {
     const AuthStr = `Bearer ${Keys.ASANA_BEARER_TOKEN}`;
+    const projectId = this.props.project;
     axios
-      .get('https://app.asana.com/api/1.0/projects/597581411344319/tasks?opt_fields=notes,name', {
+      .get(`https://app.asana.com/api/1.0/projects/${projectId}/tasks?opt_fields=notes,name`, {
         headers: { Authorization: AuthStr }
       })
       .then(response => {
         this.setState({ tasks: response.data.data });
+      })
+      .catch(error => {
+        this.setState({ error });
       });
   }
 
@@ -24,6 +30,14 @@ export default class TaskListContainer extends Component {
   };
 
   render() {
-    return <TaskList tasks={this.state.tasks} markAsDone={this.markAsDone} />;
+    return (
+      <div>
+        {this.state.error ? (
+          <NotFound />
+        ) : (
+          <TaskList tasks={this.state.tasks} markAsDone={this.markAsDone} />
+        )}
+      </div>
+    );
   }
 }

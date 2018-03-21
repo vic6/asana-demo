@@ -7,12 +7,16 @@ export default class Header extends Component {
   state = {};
   componentDidMount() {
     const AuthStr = `Bearer ${Keys.ASANA_BEARER_TOKEN}`;
+    const projectId = this.props.project;
     axios
-      .get('https://app.asana.com/api/1.0/projects/597581411344319', {
+      .get(`https://app.asana.com/api/1.0/projects/${projectId}`, {
         headers: { Authorization: AuthStr }
       })
       .then(response => {
         this.setState({ name: response.data.data.name });
+      })
+      .catch(() => {
+        this.setState({ name: 'Invalid Project ID' });
       });
   }
 
@@ -23,20 +27,8 @@ export default class Header extends Component {
           <img className="ui small image" src="/public/images/logo.png" alt="logo" />
         </Menu.Item>
 
-        <Menu.Item style={{ 'font-size': '1.5rem' }} name={this.state.name} />
+        <Menu.Item style={{ fontSize: '1.5rem' }} name={this.state.name} />
       </Menu>
     );
   }
 }
-
-// const Header = () => (
-//     <Menu borderless>
-//       <Menu.Item style={{ padding: '0px' }}>
-//         <img className="ui small image" src="/public/images/logo.png" alt="logo" />
-//       </Menu.Item>
-//
-//       <Menu.Item name="Name of Project" />
-//     </Menu>
-//   );
-//
-// export default Header;

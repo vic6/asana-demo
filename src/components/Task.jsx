@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button, List } from 'semantic-ui-react';
 
-const Task = ({ name, note, id, markAsDone }) => {
-  return (
+const Task = ({ name, id, markAsDone }) => (
     <div>
-      <List.Content floated="left" as="li" key={id}>
+      <List.Content style={{color: 'black'}} floated="left" as="li" key={id}>
         {name}
       </List.Content>
       <List.Content floated="right">
@@ -17,16 +16,5 @@ const Task = ({ name, note, id, markAsDone }) => {
       </List.Content>
     </div>
   );
-};
 
 export default Task;
-
-// id, name, note
-// export default class Task extends Component {
-//   render() {
-//     const { name, note, id } = this.props;
-//     return (
-//       <li key={id}>{name}</li>
-//     )
-//   }
-// }

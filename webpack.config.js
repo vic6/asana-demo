@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/AppContainer.jsx",
+  entry: "./src/components/AppContainer.jsx",
   output: {
     path: path.join(__dirname, "public"),
     filename: "bundle.js"
@@ -27,6 +27,7 @@ module.exports = {
   // ],
   devtool: "cheap-module-eval-source-map",
   devServer: {
-    publicPath: '/public/'
+    publicPath: '/public/',
+    historyApiFallback: true
   }
 };

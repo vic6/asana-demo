@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, List } from 'semantic-ui-react';
 import TaskContainer from './TaskContainer';
 
-const TaskList = ({tasks, markAsDone}) => {
+const TaskList = ({ tasks, markAsDone }) => {
   // const data = JSON.stringify(this.props.tasks, null, 4);
   let list = tasks;
 
