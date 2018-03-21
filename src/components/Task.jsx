@@ -8,6 +8,7 @@ const Task = ({ name, id, markAsDone }) => (
     </List.Content>
     <List.Content floated="right">
       <Button
+        basic color='pink'
         onClick={() => {
           markAsDone(id);
         }}>
