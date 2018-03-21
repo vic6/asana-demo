@@ -1,0 +1,19 @@
+token = 0/d2e790014f71dc17d28c2b2d9874d703
+
+curl -H "Authorization: Bearer 0/d2e790014f71dc17d28c2b2d9874d703" https://app.asana.com/api/1.0/users/me?opt_pretty
+
+curl -H "Authorization: Bearer 0/d2e790014f71dc17d28c2b2d9874d703" https://app.asana.com/api/1.0/projects/597577549282078/
+
+workspace id = 597577549282078
+project id = 597581411344319
+
+
+curl -H "Authorization: Bearer 0/d2e790014f71dc17d28c2b2d9874d703" \
+https://app.asana.com/api/1.0/tasks \
+--data-urlencode "notes=I love ice cream?" \
+--data-urlencode "name=Hello everyone" \
+--data-urlencode "projects=597581411344319" \
+--data-urlencode "workspace=597577549282078" \
+
+// All tasks url
+https://app.asana.com/api/1.0/projects/597581411344319/tasks

@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-const EnterProjectId = () => <Link to="/">Add Project id to the end of the url</Link>;
+const EnterProjectId = () => (
+  <h1 to="/:id">Add Project id to the end of the url(597581411344319)</h1>
+);
 
 const Application = () => (
   <BrowserRouter>
