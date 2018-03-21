@@ -18,13 +18,6 @@ module.exports = {
       }
     ]
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       'ASANA_BEARER_TOKEN': process.env.ASANA_BEARER_TOKEN
-  //     }
-  //   })
-  // ],
   devtool: "cheap-module-eval-source-map",
   devServer: {
     publicPath: '/public/',
